@@ -11,15 +11,22 @@
   <link rel="apple-touch-icon" href="icon.png"/>
   <script type="text/javascript" src="yaar.js"></script>
   <script type="text/javascript"> 
-    window.onload = function(){
-      var a = yaar({ id: 'preview', onMarker: function(marker){  } , draw: true, detector: 'detector.js'});
-      //a.stop();
-    }
+      var instance =null;
+      function start() {
+        instance = yaar({ id: 'preview', onMarker: function(marker){  } , draw: true, detector: 'detector.js'});
+      }
+      function stop() {
+        if(instance!=null) {
+          instance.stop();
+        }
+      }
 </script>
 </head>
 <body>
   <p>
-    <a href="http://diogok.net/js-aruco-markers">View All JS Aruco Markers</a>
+    <a href="http://diogok.net/js-aruco-markers">View All JS Aruco Markers</a><br />
+    <button onclick='start()'>Start</button>
+    <button onclick='stop()'>Stop</button>
   </p>
   <canvas id='preview'></canvas>
 </body>
