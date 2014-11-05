@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Yet Another Augmented Reality </title>
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="icon.png" />
+  <link rel="shortcut icon" href="icon.png" />
+  <link rel="apple-touch-icon" href="icon.png"/>
+  <script type="text/javascript" src="yaar.js"></script>
+  <script type="text/javascript"> 
+    window.onload = function(){
+      var a = yaar({ id: 'preview', onMarker: function(marker){  } , draw: true, detector: 'detector.js'});
+      //a.stop();
+    }
+</script>
+</head>
+<body>
+  <p>
+    <a href="http://diogok.net/js-aruco-markers">View All JS Aruco Markers</a>
+  </p>
+  <canvas id='preview'></canvas>
+</body>
+</html>
