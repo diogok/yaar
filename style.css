@@ -4,10 +4,11 @@ html, body {
   text-align:center;
 }
 
-canvas {
-  height: 90vh;
-  width: 85vw;
+#preview {
+  margin: 0 auto;
+  height: 85vh;
+  width: 90vw;
+  display: block;
   border: 1px solid black;
 }
-
 
