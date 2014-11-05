@@ -12,6 +12,8 @@ function yaar(opts) {
   video.style.display='none';
   document.body.appendChild(video);
 
+  var localStream = null;
+
   var canvas = document.getElementById(opts.id);
   //canvas.style.display='none';
   var context = canvas.getContext('2d');
@@ -74,6 +76,7 @@ function yaar(opts) {
       }
       function success(stream) {
         video.src = (window.URL && window.URL.createObjectURL(stream)) || stream;
+        localStream = stream;
         video.play();
         setTimeout(function(){
           height = video.videoHeight / (video.videoWidth/width);
@@ -87,10 +90,10 @@ function yaar(opts) {
     if(MediaStreamTrack.getSources) {
       MediaStreamTrack.getSources(function(sources){
         var sid = sources[sources.length - 1].id;
-        start({video: {optional:[{sourceId: sid}]}, audio: false})
+        start({video: {optional:[{sourceId: sid}],mandatory: {maxWidth: 1024,maxHeight: 720}}, audio: false})
       });
     } else {
-      start({video:true,audio:false});
+      start({video:{mandatory:{maxWidth: 1024, maxHeight: 720}},audio:false});
     }
   };
 
@@ -103,7 +106,9 @@ function yaar(opts) {
     stop: function() {
       clearInterval(interval);
       cancelAnimationFrame(animation);
+      if(localStream) localStream.stop();
       document.body.removeChild(video);
+      //video.stop();
     }
   };
 
