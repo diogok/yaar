@@ -24,7 +24,7 @@ Does Not Work on:
 - Desktop Safari
 - IE
 
-Likely, but not tested:
+Likely to work, but not tested:
 
 - iOS Chrome
 - iOS Firefox
@@ -39,14 +39,14 @@ Take a look at index.html.
 
 So, simply:
 
-  var opts = {
-    id: 'canvas-id', // canvas for the yaar to use
-    draw: true, // If I should draw lines on the found markers, good for debug
-    onMarker: function(markers){} // listen for found markers, with their ids and position
-  };
-  var instance = yaar(opts);
-  // sometime later
-  instance.stop();
+    var opts = {
+      id: 'canvas-id', // canvas for the yaar to use
+      draw: true, // If I should draw lines on the found markers, good for debug
+      onMarker: function(markers){} // listen for found markers, with their ids and position
+    };
+    var instance = yaar(opts);
+    // sometime later
+    instance.stop();
 
 
 ## License
